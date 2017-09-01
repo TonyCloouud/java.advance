@@ -1,7 +1,10 @@
 package advance;
 
 import advance.model.Employee;
+import org.apache.ibatis.cache.impl.PerpetualCache;
+import org.apache.ibatis.executor.BaseExecutor;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -70,7 +73,31 @@ public class Mybatis {
         //~output :  所有员工数: 8
     }
 
+    static void sqlSessionTest() throws UnsupportedEncodingException {
+        long start = System.currentTimeMillis();
+        InputStreamReader read = new InputStreamReader(
+                Mybatis.class.getClassLoader().getResourceAsStream("mybatisConfig.xml"),"utf-8");//考虑到编码格式
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory = builder.build(read);
+
+        SqlSession sqlSession = factory.openSession();
+        //3.使用SqlSession查询
+        Map<String,Object> params = new HashMap<String,Object>();
+//        params.put("min_salary",10000);
+        //a.查询工资低于10000的员工
+        System.out.println("init quest costs:"+ (System.currentTimeMillis()-start) +" ms");
+        long first = System.currentTimeMillis();
+
+        //第一次查询
+        List<Employee> result = sqlSession.selectList("advance.mapper.EmployeesMapper.selectByMinSalary",params);
+        System.out.println("first quest costs:"+ (System.currentTimeMillis()-first) +" ms");
+       long second = System.currentTimeMillis();
+        params.put("min_salary",10001);
+        result = sqlSession.selectList("advance.mapper.EmployeesMapper.selectByMinSalary",params);
+        System.out.println("second quest costs:"+ (System.currentTimeMillis()-second) +" ms");
+    }
+
     public static void main(String[] args) throws SQLException, IOException, ClassNotFoundException {
-        mybatisQueryFunctest();
+        sqlSessionTest();
     }
 }
