@@ -12,7 +12,9 @@ import static java.lang.ClassLoader.getSystemClassLoader;
 public class MemoryAsisTooJconsole {
     private static List<MemoryAsisTooJconsole> tooJconsoles = new ArrayList<>();
 
-    public static void main(String[] args) throws InterruptedException {
+
+
+    static void  test() throws InterruptedException {
         for (int i = 0;i < 10000;i++){
             MemoryAsisTooJconsole memoryAsisTooJconsole = new MemoryAsisTooJconsole();
             tooJconsoles.add(memoryAsisTooJconsole);

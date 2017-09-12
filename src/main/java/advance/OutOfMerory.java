@@ -19,7 +19,4 @@ public class OutOfMerory {
 
     }
 
-    public static void main(String[] args) {
-        add();
-    }
 }

@@ -39,8 +39,5 @@ public class BufferExample {
         System.out.println(new String(array));
     }
 
-    public static void main(String[] args) {
-//        bufferOper();
-        compareTwoBuffer();
-    }
+
 }

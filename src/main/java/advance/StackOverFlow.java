@@ -13,7 +13,7 @@ public class StackOverFlow {
         stackOverFlow();
     }
 
-    public static void main(String[] args) throws Throwable {
+    static void test(){
         StackOverFlow stackOverFlow = new StackOverFlow();
         try {
             stackOverFlow.stackOverFlow();
@@ -21,6 +21,5 @@ public class StackOverFlow {
             System.out.println("stackLength:"+stackLength);
             throw e;
         }
-
     }
 }

@@ -1,10 +1,11 @@
 package advance;
 
+import advance.util.HttpUtil;
+
 import java.lang.reflect.Field;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.*;
 
 /**
  * ExecutorService
@@ -12,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @autho baifugui
  * @create 2017 08 23 14:32
  */
-public class ExecutorService {
+public class ExecutorServiceTest {
     static void log(String msg){
         System.out.println(System.currentTimeMillis() + " -> " + msg);
     }
@@ -24,7 +25,8 @@ public class ExecutorService {
         return v;
     }
 
-    public static void main(String[] args) throws InterruptedException, NoSuchFieldException, IllegalAccessException {
+
+    static void executorTest() throws InterruptedException, NoSuchFieldException, IllegalAccessException {
         ThreadPoolExecutor pool = new ThreadPoolExecutor(1,2220,0, TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(1));
         pool.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
 
@@ -53,5 +55,36 @@ public class ExecutorService {
         log("after shutdown ,poo.isTerminated="+pool.isTerminated());
         pool.awaitTermination(1000L,TimeUnit.SECONDS);
         log("now,pool.isTerminated="+pool.isTerminated()+",state="+getThreadPoolRunState(pool));
+    }
+
+
+    static  void jdwxApitest() throws InterruptedException {
+        long start = System.currentTimeMillis();
+        String url = "http://localhost:8080/user/channel/validJdwxAccount";
+        Map<String, String> params = new HashMap<>();
+        params.put("userId","test_yong");
+        params.put("dataId","11679");
+        params.put("channel","JDWX");
+        params.put("token","openApiJdwx");
+        ExecutorService es = Executors.newFixedThreadPool(50);
+
+        for(int i = 0;i <10000;i++){
+            Map<String,String> params1 = new HashMap<>();
+            params1.put("dataId","11679");
+            params1.put("channel","JDWX");
+            params1.put("token","openApiJdwx");
+            params1.put("userId","m50"+i);
+            es.submit(new Runnable() {
+                @Override
+                public void run() {
+                    HttpUtil.onLinkNetPost(url,params1);
+                }
+            });
+        }
+
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        jdwxApitest();
     }
 }

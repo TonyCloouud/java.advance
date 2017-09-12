@@ -30,10 +30,10 @@ public class GCFinalize {
         System.out.println("我被调用了");
     }
 
-    public static void main(String[] args) throws InterruptedException {
-         gcFinalize = new GCFinalize();
-        testGC();
-        testGC();
-
-    }
+//    public static void main(String[] args) throws InterruptedException {
+//         gcFinalize = new GCFinalize();
+//        testGC();
+//        testGC();
+//
+//    }
 }

@@ -1,9 +1,14 @@
 package advance;
 
 import advance.model.Employee;
+import org.apache.ibatis.cache.decorators.FifoCache;
+import org.apache.ibatis.cache.decorators.SoftCache;
+import org.apache.ibatis.cache.decorators.SynchronizedCache;
 import org.apache.ibatis.cache.impl.PerpetualCache;
+import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.executor.BaseExecutor;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -79,11 +84,12 @@ public class Mybatis {
                 Mybatis.class.getClassLoader().getResourceAsStream("mybatisConfig.xml"),"utf-8");//考虑到编码格式
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(read);
+        factory.getConfiguration().setCacheEnabled(Boolean.FALSE);
 
         SqlSession sqlSession = factory.openSession();
         //3.使用SqlSession查询
         Map<String,Object> params = new HashMap<String,Object>();
-//        params.put("min_salary",10000);
+        params.put("min_salary",10000);
         //a.查询工资低于10000的员工
         System.out.println("init quest costs:"+ (System.currentTimeMillis()-start) +" ms");
         long first = System.currentTimeMillis();
@@ -92,12 +98,11 @@ public class Mybatis {
         List<Employee> result = sqlSession.selectList("advance.mapper.EmployeesMapper.selectByMinSalary",params);
         System.out.println("first quest costs:"+ (System.currentTimeMillis()-first) +" ms");
        long second = System.currentTimeMillis();
-        params.put("min_salary",10001);
+//        params.put("min_salary",10001);
         result = sqlSession.selectList("advance.mapper.EmployeesMapper.selectByMinSalary",params);
         System.out.println("second quest costs:"+ (System.currentTimeMillis()-second) +" ms");
+        LogFactory.useSlf4jLogging();
     }
 
-    public static void main(String[] args) throws SQLException, IOException, ClassNotFoundException {
-        sqlSessionTest();
-    }
+
 }

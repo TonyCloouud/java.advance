@@ -27,7 +27,4 @@ public class Jdk8 {
 
     }
 
-    public static void main(String[] args) {
-        lambExpression();
-    }
 }
