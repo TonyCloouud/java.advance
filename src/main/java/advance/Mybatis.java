@@ -1,15 +1,7 @@
 package advance;
 
 import advance.model.Employee;
-import org.apache.ibatis.cache.decorators.FifoCache;
-import org.apache.ibatis.cache.decorators.SoftCache;
-import org.apache.ibatis.cache.decorators.SynchronizedCache;
-import org.apache.ibatis.cache.impl.PerpetualCache;
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
-import org.apache.ibatis.executor.BaseExecutor;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.logging.LogFactory;
-import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -57,7 +49,7 @@ public class Mybatis {
          * 这里只是为了演示的需要，SqlSessionFactory临时创建出来，在实际的使用中，SqlSessionFactory只需要创建一次，当作单例来使用
          */
         InputStreamReader read = new InputStreamReader(
-                Mybatis.class.getClassLoader().getResourceAsStream("mybatisConfig.xml"),"utf-8");//考虑到编码格式
+                Mybatis.class.getClassLoader().getResourceAsStream("mybatisConfigs.xml"),"utf-8");//考虑到编码格式
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(read);
 
@@ -81,12 +73,13 @@ public class Mybatis {
     static void sqlSessionTest() throws UnsupportedEncodingException {
         long start = System.currentTimeMillis();
         InputStreamReader read = new InputStreamReader(
-                Mybatis.class.getClassLoader().getResourceAsStream("mybatisConfig.xml"),"utf-8");//考虑到编码格式
+                Mybatis.class.getClassLoader().getResourceAsStream("mybatisConfigs.xml"),"utf-8");//考虑到编码格式
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(read);
         factory.getConfiguration().setCacheEnabled(Boolean.FALSE);
 
         SqlSession sqlSession = factory.openSession();
+
         //3.使用SqlSession查询
         Map<String,Object> params = new HashMap<String,Object>();
         params.put("min_salary",10000);
@@ -96,12 +89,20 @@ public class Mybatis {
 
         //第一次查询
         List<Employee> result = sqlSession.selectList("advance.mapper.EmployeesMapper.selectByMinSalary",params);
-        System.out.println("first quest costs:"+ (System.currentTimeMillis()-first) +" ms");
+        System.out.println("first quest costs:"+ result +" ms");
        long second = System.currentTimeMillis();
 //        params.put("min_salary",10001);
         result = sqlSession.selectList("advance.mapper.EmployeesMapper.selectByMinSalary",params);
         System.out.println("second quest costs:"+ (System.currentTimeMillis()-second) +" ms");
         LogFactory.useSlf4jLogging();
+
+        sqlSession.delete("advance.store.MessageMapper.deleteByPrimaryKey",1323);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        sqlSessionTest();
     }
 
 

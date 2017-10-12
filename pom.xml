@@ -68,6 +68,11 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.3.2</version>
     </dependency>
+    <dependency>
+      <groupId>com.alibaba.rocketmq</groupId>
+      <artifactId>rocketmq-client</artifactId>
+      <version>3.5.9</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -79,7 +84,7 @@
     <resources>
       <!--指定资源文件-->
       <resource>
-        <directory>src/main/java</directory>
+        <directory>src/main/resources</directory>
         <includes>
           <include>**/*.xml</include>
         </includes>

@@ -5,6 +5,7 @@ import advance.util.HttpUtil;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.*;
 
 /**
@@ -66,14 +67,14 @@ public class ExecutorServiceTest {
         params.put("dataId","11679");
         params.put("channel","JDWX");
         params.put("token","openApiJdwx");
-        ExecutorService es = Executors.newFixedThreadPool(50);
+        ExecutorService es = Executors.newFixedThreadPool(10);
 
-        for(int i = 0;i <10000;i++){
+        for(int i = 0;i <100;i++){
             Map<String,String> params1 = new HashMap<>();
             params1.put("dataId","11679");
             params1.put("channel","JDWX");
             params1.put("token","openApiJdwx");
-            params1.put("userId","m50"+i);
+            params1.put("userId","aaa"+i);
             es.submit(new Runnable() {
                 @Override
                 public void run() {
@@ -87,4 +88,6 @@ public class ExecutorServiceTest {
     public static void main(String[] args) throws InterruptedException {
         jdwxApitest();
     }
+
+
 }
