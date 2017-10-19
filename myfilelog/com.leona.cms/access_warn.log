@@ -1,1 +1,46 @@
-2017-09-06 17:43:37 1840 [main] WARN  o.s.boot.SpringApplication - Error handling failed (ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f1de4c7: startup date [Thu Jan 01 08:00:00 CST 1970]; root of context hierarchy)
+2017-10-17 15:20:25 1571 [main] WARN  o.s.boot.SpringApplication - Error handling failed (ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@78691363: startup date [Thu Jan 01 08:00:00 CST 1970]; root of context hierarchy)
+2017-10-17 15:35:14 1770 [main] WARN  o.s.boot.SpringApplication - Error handling failed (ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Thu Jan 01 08:00:00 CST 1970]; root of context hierarchy)
+2017-10-17 15:40:08 2072 [main] WARN  o.s.boot.SpringApplication - Error handling failed (ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Thu Jan 01 08:00:00 CST 1970]; root of context hierarchy)
+2017-10-17 15:50:44 1880 [main] WARN  o.s.boot.SpringApplication - Error handling failed (ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Thu Jan 01 08:00:00 CST 1970]; root of context hierarchy)
+2017-10-17 16:16:51 3836 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception thrown from LifecycleProcessor on context close
+java.lang.IllegalStateException: LifecycleProcessor not initialized - call 'refresh' before invoking lifecycle methods via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Tue Oct 17 16:16:49 CST 2017]; root of context hierarchy
+	at org.springframework.context.support.AbstractApplicationContext.getLifecycleProcessor(AbstractApplicationContext.java:416)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:997)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:956)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:818)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at advance.Application.main(Application.java:19)
+2017-10-17 17:10:36 3661 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception thrown from LifecycleProcessor on context close
+java.lang.IllegalStateException: LifecycleProcessor not initialized - call 'refresh' before invoking lifecycle methods via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Tue Oct 17 17:10:35 CST 2017]; root of context hierarchy
+	at org.springframework.context.support.AbstractApplicationContext.getLifecycleProcessor(AbstractApplicationContext.java:416)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:997)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:956)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:818)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at advance.Application.main(Application.java:19)
+2017-10-17 17:32:05 4439 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception thrown from LifecycleProcessor on context close
+java.lang.IllegalStateException: LifecycleProcessor not initialized - call 'refresh' before invoking lifecycle methods via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Tue Oct 17 17:32:04 CST 2017]; root of context hierarchy
+	at org.springframework.context.support.AbstractApplicationContext.getLifecycleProcessor(AbstractApplicationContext.java:416)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:997)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:956)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:818)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at advance.Application.main(Application.java:19)
+2017-10-17 17:33:24 3566 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception thrown from LifecycleProcessor on context close
+java.lang.IllegalStateException: LifecycleProcessor not initialized - call 'refresh' before invoking lifecycle methods via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Tue Oct 17 17:33:22 CST 2017]; root of context hierarchy
+	at org.springframework.context.support.AbstractApplicationContext.getLifecycleProcessor(AbstractApplicationContext.java:416)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:997)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:956)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:818)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175)
+	at advance.Application.main(Application.java:19)
+2017-10-17 17:33:42 2372 [main] WARN  o.s.boot.SpringApplication - Error handling failed (ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Thu Jan 01 08:00:00 CST 1970]; root of context hierarchy)
+2017-10-17 17:35:06 1763 [main] WARN  o.s.boot.SpringApplication - Error handling failed (ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45a4b042: startup date [Thu Jan 01 08:00:00 CST 1970]; root of context hierarchy)

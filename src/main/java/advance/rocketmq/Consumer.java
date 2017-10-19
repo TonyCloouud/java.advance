@@ -71,7 +71,7 @@ public class Consumer {
        try {
 
            DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("consumer_m_n");
-           consumer.setNamesrvAddr("172.17.6.14:9876;172.17.6.15:9876");//master集群地址
+           consumer.setNamesrvAddr("172.17.1.134:9876");//master集群地址
            consumer.setInstanceName("consumer");
            consumer.setConsumeMessageBatchMaxSize(100);
            consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);

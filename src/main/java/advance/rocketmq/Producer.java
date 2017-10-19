@@ -32,7 +32,7 @@ public class Producer {
     public static void start() throws IOException, MQClientException, RemotingException, InterruptedException, MQBrokerException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         DefaultMQProducer producer = new DefaultMQProducer("consumer_m_n");
-        producer.setNamesrvAddr("172.17.6.10:9876;172.17.6.16:9876");//slave集群地址
+        producer.setNamesrvAddr("172.17.1.134:9876");//slave集群地址
         producer.setInstanceName("producer");
         producer.setRetryTimesWhenSendFailed(10);//失败的 情况发送10次
         producer.start();

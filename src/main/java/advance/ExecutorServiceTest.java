@@ -85,9 +85,6 @@ public class ExecutorServiceTest {
 
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        jdwxApitest();
-    }
 
 
 }

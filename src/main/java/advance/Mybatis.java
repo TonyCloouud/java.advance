@@ -101,9 +101,7 @@ public class Mybatis {
         sqlSession.close();
     }
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        sqlSessionTest();
-    }
+
 
 
 }
