@@ -5,7 +5,11 @@ import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.transaction.Transaction;
+import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+import org.apache.ibatis.transaction.managed.ManagedTransaction;
 
+import javax.sql.DataSource;
 import java.io.*;
 import java.sql.*;
 import java.util.HashMap;
@@ -55,7 +59,6 @@ public class Mybatis {
 
         //2. 从SqlSession工厂 SqlSessionFactory中创建一个SqlSession，进行数据库操作
         SqlSession sqlSession = factory.openSession();
-
         //3.使用SqlSession查询
         Map<String,Object> params = new HashMap<String,Object>();
 
@@ -79,7 +82,6 @@ public class Mybatis {
         factory.getConfiguration().setCacheEnabled(Boolean.FALSE);
 
         SqlSession sqlSession = factory.openSession();
-
         //3.使用SqlSession查询
         Map<String,Object> params = new HashMap<String,Object>();
         params.put("min_salary",10000);
