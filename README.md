@@ -1,2 +1,2 @@
-# java.advance
-java advance
+# java study
+java study
