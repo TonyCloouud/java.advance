@@ -6,13 +6,13 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.4.1.RELEASE</version>
   </parent>
-  <groupId>comprehensive.advance</groupId>
-  <artifactId>comprehensive.advance</artifactId>
+  <groupId>com.self</groupId>
+  <artifactId>java-study</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <packaging>jar</packaging>
 
-  <name>comprehensive.advance</name>
+  <name>javaStudy</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
